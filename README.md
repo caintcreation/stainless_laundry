@@ -5,6 +5,12 @@
 > Serving students, residents, and businesses around **Ndagani, Chuka, Kenya**.  
 > Direct Hotline / WhatsApp: **0101476174**
 
+## Live Website
+
+Visit the live application: [https://stainlesslaundry.wuaze.com/](https://stainlesslaundry.wuaze.com/)
+
+This is the publicly deployed production/demo instance of **Stainless Laundry Services**. Visitors can use it to explore the customer-facing website and the available laundry services.
+
 ---
 
 ## 1. Project Overview
@@ -34,7 +40,7 @@ This platform implements the complete laundry service journey based on the offic
 
 ---
 
-## 3. Local Installation on Windows with XAMPP
+## 3. Local Development/Testing Installation on Windows with XAMPP
 
 ### Step 1: Install XAMPP
 1. Download **XAMPP for Windows** (with PHP 8.2 or newer) from [Apache Friends](https://www.apachefriends.org/).
@@ -86,8 +92,8 @@ http://localhost/laundry service/setup-admin.php
 - Default configured admin: `admin@stainlesslaundry.co.ke`
 - You can specify your custom strong administrative password during this initial setup.
 
-### Step 8: Open the Website in Browser
-Access the live application in your web browser:
+### Step 8: Open the Local Development Site in Browser
+Access the local development/testing instance in your web browser:
 ```
 http://localhost/laundry service/
 ```
