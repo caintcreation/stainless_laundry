@@ -5,6 +5,31 @@
 > Serving students, residents, and businesses around **Ndagani, Chuka, Kenya**.  
 > Direct Hotline / WhatsApp: **0101476174**
 
+<p align="center">
+  <a href="https://stainlesslaundry.wuaze.com/"><strong>Visit the Live Website</strong></a>
+  &nbsp;&bull;&nbsp;
+  <a href="https://stainlesslaundry.wuaze.com/pricing.php">View Pricing</a>
+  &nbsp;&bull;&nbsp;
+  <a href="https://stainlesslaundry.wuaze.com/contact.php">Contact the Business</a>
+</p>
+
+> **Live demo:** [https://stainlesslaundry.wuaze.com/](https://stainlesslaundry.wuaze.com/)
+
+## Table of Contents
+
+- [Project Overview](#1-project-overview)
+- [Technology Stack](#2-technology-stack)
+- [Live Website](#live-website)
+- [Key Capabilities](#key-capabilities)
+- [Local Installation on Windows with XAMPP](#3-local-installation-on-windows-with-xampp)
+- [Complete Application Pages & Workflows](#4-complete-application-pages--workflows)
+- [The 12 Laundry Tracking Workflow Milestones](#5-the-12-laundry-tracking-workflow-milestones)
+- [How to Run Automated Tests](#6-how-to-run-automated-tests)
+- [Future M-Pesa Safaricom Daraja API Integration](#7-future-m-pesa-safaricom-daraja-api-integration)
+- [Production Deployment & Security Checklist](#8-production-deployment--security-checklist)
+- [Project Structure](#project-structure)
+- [Operational Notes](#operational-notes)
+
 ---
 
 ## 1. Project Overview
@@ -22,6 +47,44 @@ This platform implements the complete laundry service journey based on the offic
 - **Customer Portal:** Registration, authentication, multi-item order booking with live dynamic subtotal calculator, server-side price protection, order history, and in-app milestone notifications.
 - **12-Stage Real-Time Laundry Tracking:** Tracks orders from placement through collection, washing, drying, folding, quality check, to delivery with staff signatures and timestamps.
 - **Admin & Staff Management:** Order management, pickup logistics, delivery dispatching, verified payment recording (M-Pesa, Cash, Bank), service catalog pricing control, audit logs, and business reports.
+
+## Live Website
+
+The production website is available at:
+
+**[https://stainlesslaundry.wuaze.com/](https://stainlesslaundry.wuaze.com/)**
+
+Visitors can browse the services and prices, create a customer account, book a laundry pickup, track an order, and contact Stainless Laundry Services. Staff members should use the protected administration area rather than sharing administrative credentials with customers.
+
+## Key Capabilities
+
+### Customer experience
+
+- Browse the available laundry services and poster-based prices.
+- Register and sign in using a validated Kenyan phone number.
+- Book multiple laundry items in a single order.
+- See a live subtotal while building an order.
+- Track pickup, processing, and delivery progress.
+- Review order history, invoices, notifications, and saved profile details.
+- Contact the business through the website or the direct WhatsApp/phone channel.
+
+### Operations and administration
+
+- Manage customers, services, pricing, orders, pickups, deliveries, and payments.
+- Advance orders through the complete operational tracking pipeline.
+- Record payment methods including M-Pesa, cash, and bank payments.
+- Review verified revenue, outstanding balances, service activity, and audit logs.
+- Maintain staff accounts with role-based permissions.
+- Preserve historical order prices when the service catalog changes.
+
+### Reliability and security
+
+- Use PDO prepared statements for database operations.
+- Recalculate order prices on the server instead of trusting browser totals.
+- Protect state-changing requests with CSRF tokens.
+- Hash passwords using PHP's password API.
+- Escape rendered output and regenerate sessions during authentication.
+- Keep operational history through status events, payment records, and audit logs.
 
 ---
 
@@ -209,3 +272,37 @@ Before deploying to live web hosting (e.g., cPanel, VPS, or Cloud):
        Require all denied
    </FilesMatch>
    ```
+
+## Project Structure
+
+The application follows a small, conventional PHP application structure:
+
+```text
+.
+├── admin/                 # Staff and administrator dashboards
+├── assets/                # CSS, JavaScript, logo, and poster artwork
+├── config/                # Application and database configuration
+├── customer/              # Authenticated customer portal
+├── includes/              # Shared authentication, navigation, validation, and helpers
+├── tests/                 # Database-backed application test suite
+├── database.sql           # Database schema and initial service configuration
+├── index.php              # Public homepage
+└── .htaccess              # Apache routing and access rules
+```
+
+## Operational Notes
+
+- The hosted site is configured for the production environment; do not use local XAMPP credentials on the live server.
+- Use environment variables (`DB_HOST`, `DB_NAME`, `DB_USER`, and `DB_PASS`) for database configuration wherever possible.
+- Run `setup-admin.php` only during initial setup, then remove or restrict access to the setup endpoint.
+- The public website can be used without exposing staff credentials. Keep administrator accounts unique and protected with strong passwords.
+- Pricing is read from the database so authorized staff can update active service options without changing the application code.
+- Pickup and delivery availability is currently focused around Ndagani and the Chuka University vicinity.
+
+## Support and Contact
+
+For laundry bookings, pickup coordination, or general questions:
+
+- **Phone / WhatsApp:** `0101476174`
+- **Service area:** Around Ndagani, Chuka, Kenya
+- **Website:** [stainlesslaundry.wuaze.com](https://stainlesslaundry.wuaze.com/)
